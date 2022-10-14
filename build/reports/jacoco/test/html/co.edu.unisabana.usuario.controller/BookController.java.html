@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BookController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">usuario</a> &gt; <a href="index.source.html" class="el_package">co.edu.unisabana.usuario.controller</a> &gt; <span class="el_source">BookController.java</span></div><h1>BookController.java</h1><pre class="source lang-java linenums">package co.edu.unisabana.usuario.controller;
+
+import co.edu.unisabana.usuario.dto.BookDto;
+import co.edu.unisabana.usuario.dto.BookReponse;
+import co.edu.unisabana.usuario.repository.dao.BookDao;
+import co.edu.unisabana.usuario.repository.dao.entity.BookEntity;
+import co.edu.unisabana.usuario.service.library.RegisterBookLibrary;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/book&quot;)
+public class BookController {
+
+    private final RegisterBookLibrary registerBookLibrary;
+
+
+<span class="fc" id="L19">    public BookController(RegisterBookLibrary registerBookLibrary) {</span>
+<span class="fc" id="L20">        this.registerBookLibrary = registerBookLibrary;</span>
+<span class="fc" id="L21">    }</span>
+
+    // Pendiente validar uso de exception handler
+    // explicar camel case
+    @PostMapping(&quot;/register&quot;)
+    @ResponseBody
+    public BookReponse registerBook(@RequestBody BookDto bookDto) {
+<span class="fc" id="L28">        int result = registerBookLibrary.registerBook(bookDto.toModel());</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (result == 1) {</span>
+<span class="fc" id="L30">            return new BookReponse(&quot;Actualizada cantidad&quot;);</span>
+        }
+<span class="fc" id="L32">        return new BookReponse(&quot;Nuevo libro registrado&quot;);</span>
+
+
+    }
+
+    @GetMapping(&quot;/search&quot;)
+    public List&lt;BookEntity&gt; searchBook(@RequestParam String q) {
+<span class="nc" id="L39">        BookDao bookDao = new BookDao();</span>
+<span class="nc" id="L40">        List&lt;BookEntity&gt; results = bookDao.searchBook(q);</span>
+<span class="nc" id="L41">        return results;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

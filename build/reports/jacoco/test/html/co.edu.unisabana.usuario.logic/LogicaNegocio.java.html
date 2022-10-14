@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LogicaNegocio.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">usuario</a> &gt; <a href="index.source.html" class="el_package">co.edu.unisabana.usuario.logic</a> &gt; <span class="el_source">LogicaNegocio.java</span></div><h1>LogicaNegocio.java</h1><pre class="source lang-java linenums">package co.edu.unisabana.usuario.logic;
+
+import co.edu.unisabana.usuario.dto.BookDto;
+import co.edu.unisabana.usuario.service.library.model.Book;
+import co.edu.unisabana.usuario.service.library.model.CategoryBook;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LogicaNegocio {
+<span class="nc" id="L12">    private final static LogicaNegocio logicaDeNegocio = new LogicaNegocio();</span>
+<span class="nc" id="L13">    private final List&lt;Book&gt; listado = new ArrayList&lt;&gt;();</span>
+
+
+<span class="nc" id="L16">    private LogicaNegocio(){</span>
+<span class="nc" id="L17">        Book book1 = new Book(&quot;El seÃ±or de los anillos&quot;, 1954,&quot;J.R. Tolkien&quot;, false, CategoryBook.SOFT_COVER);</span>
+<span class="nc" id="L18">        Book book2 = new Book(&quot;El seÃ±or de los anillos 2&quot;, 1963,&quot;J.R. Tolkien&quot;, false, CategoryBook.HARD_COVER);</span>
+<span class="nc" id="L19">        listado.add(book1);</span>
+<span class="nc" id="L20">        listado.add(book2);</span>
+<span class="nc" id="L21">    }</span>
+
+    public static LogicaNegocio getInstance(){
+<span class="nc" id="L24">        return logicaDeNegocio;</span>
+    }
+
+    public List&lt;Book&gt; getListado(){
+<span class="nc" id="L28">        return listado;</span>
+
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

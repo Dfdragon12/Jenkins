@@ -1,0 +1,60 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.2'
+    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+    id 'java'
+    id("org.sonarqube") version "3.4.0.2513"
+    id 'jacoco'
+}
+
+group = 'co.edu.unisabana'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '8'
+
+repositories {
+    mavenCentral()
+}
+
+jacoco{
+    toolVersion = "0.8.8"
+}
+
+test{
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    "**/dto/**",
+                    "**/entity/*",
+                    "**/model/*"
+            ])
+        }))
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    runtimeOnly 'com.h2database:h2:2.1.214'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation("com.google.guava:guava:31.1-jre")
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectName","yms-gate")
+    }
+}

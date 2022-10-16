@@ -13,6 +13,7 @@ public class LibroServicioTest {
     private LibroServicio servicio = new LibroServicio() ;
     private Book book1 = new Book("El señor de los anillos", 1954,"J.R. Tolkien", false, CategoryBook.SOFT_COVER);
     private Book book2 = new Book("El señor de los anillos 2", 1963,"J.R. Tolkien", false, CategoryBook.HARD_COVER);
+    private Book book3 = new Book("El señor de los anillos 3", 1973,"J.R. Tolkien", false, CategoryBook.HARD_COVER);
 
 
     @Test
@@ -30,15 +31,20 @@ public class LibroServicioTest {
     }
 
     @Test
-    public void Give_Book_name_ok_When_getBook_then_return_book(){
+    public void Given_Book_name_ok_When_getBook_then_return_book(){
         List<Book> resultados = new ArrayList<>();
         resultados.add(servicio.getBook("El señor de los anillos"));
         assertEquals(1,resultados.size());
     }
     @Test
-    public void Give_Book_name_wrong_When_getBook_then_return_empty(){
-        List<Book> resultados = new ArrayList<>();
-        resultados.add(servicio.getBook("maze runner"));
-        assertTrue(resultados.isEmpty());
+    public void Given_Book_name_wrong_When_getBook_then_return_empty(){
+        assertEquals(null,servicio.getBook("maze runner"));
     }
+    @Test
+    public void Given_book_ok_When_addBook_Then_succes(){
+        List<Book> listado = new ArrayList();
+        listado.add(servicio.addBook(book1));
+        assertFalse(listado.isEmpty());
+    }
+
 }

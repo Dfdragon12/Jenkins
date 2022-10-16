@@ -9,23 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogicaNegocio {
-<span class="nc" id="L12">    private final static LogicaNegocio logicaDeNegocio = new LogicaNegocio();</span>
-<span class="nc" id="L13">    private final List&lt;Book&gt; listado = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L12">    private final static LogicaNegocio logicaDeNegocio = new LogicaNegocio();</span>
+<span class="fc" id="L13">    private final List&lt;Book&gt; listado = new ArrayList&lt;&gt;();</span>
 
 
-<span class="nc" id="L16">    private LogicaNegocio(){</span>
-<span class="nc" id="L17">        Book book1 = new Book(&quot;El seÃ±or de los anillos&quot;, 1954,&quot;J.R. Tolkien&quot;, false, CategoryBook.SOFT_COVER);</span>
-<span class="nc" id="L18">        Book book2 = new Book(&quot;El seÃ±or de los anillos 2&quot;, 1963,&quot;J.R. Tolkien&quot;, false, CategoryBook.HARD_COVER);</span>
-<span class="nc" id="L19">        listado.add(book1);</span>
-<span class="nc" id="L20">        listado.add(book2);</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L16">    private LogicaNegocio(){</span>
+<span class="fc" id="L17">        Book book1 = new Book(&quot;El seÃ±or de los anillos&quot;, 1954,&quot;J.R. Tolkien&quot;, false, CategoryBook.SOFT_COVER);</span>
+<span class="fc" id="L18">        Book book2 = new Book(&quot;El seÃ±or de los anillos 2&quot;, 1963,&quot;J.R. Tolkien&quot;, false, CategoryBook.HARD_COVER);</span>
+<span class="fc" id="L19">        listado.add(book1);</span>
+<span class="fc" id="L20">        listado.add(book2);</span>
+<span class="fc" id="L21">    }</span>
 
     public static LogicaNegocio getInstance(){
-<span class="nc" id="L24">        return logicaDeNegocio;</span>
+<span class="fc" id="L24">        return logicaDeNegocio;</span>
     }
 
     public List&lt;Book&gt; getListado(){
-<span class="nc" id="L28">        return listado;</span>
+<span class="fc" id="L28">        return listado;</span>
 
     }
 

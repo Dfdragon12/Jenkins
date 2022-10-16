@@ -31,11 +31,14 @@ public class LibroServicioTest {
 
     @Test
     public void Give_Book_name_ok_When_getBook_then_return_book(){
-        List<Book> listado = new ArrayList();
         List<Book> resultados = new ArrayList<>();
-        listado.add(book1);
-        listado.add(book2);
         resultados.add(servicio.getBook("El señor de los anillos"));
         assertEquals(1,resultados.size());
+    }
+    @Test
+    public void Give_Book_name_wrong_When_getBook_then_return_empty(){
+        List<Book> resultados = new ArrayList<>();
+        resultados.add(servicio.getBook("maze runner"));
+        assertTrue(resultados.isEmpty());
     }
 }

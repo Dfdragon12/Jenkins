@@ -4,18 +4,18 @@ import java.util.List;
 
 import co.edu.unisabana.usuario.service.library.model.Book;
 
-<span class="nc" id="L7">public class LibroServicio {</span>
+<span class="fc" id="L7">public class LibroServicio {</span>
 
-<span class="nc" id="L9">    private List&lt;Book&gt; listado = LogicaNegocio.getInstance().getListado();</span>
+<span class="fc" id="L9">    private List&lt;Book&gt; listado = LogicaNegocio.getInstance().getListado();</span>
 
     public List&lt;Book&gt; getBooks(){
 <span class="nc" id="L12">        return listado;</span>
     }
 
     public Book getBook(String name ){
-<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (Book book : listado){</span>
-<span class="nc bnc" id="L17" title="All 2 branches missed.">            if (book.getName()==name){</span>
-<span class="nc" id="L18">                return book;</span>
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        for (Book book : listado){</span>
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">            if (book.getName()==name){</span>
+<span class="fc" id="L18">                return book;</span>
 
             }
 <span class="nc" id="L21">        }</span>

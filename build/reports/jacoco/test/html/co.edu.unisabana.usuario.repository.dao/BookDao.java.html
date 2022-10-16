@@ -12,58 +12,58 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Repository
-<span class="nc" id="L15">public class BookDao implements SearchBookPort, RegisterBookPort, AddBookPort {</span>
+<span class="fc" id="L15">public class BookDao implements SearchBookPort, RegisterBookPort, AddBookPort {</span>
 
-<span class="nc" id="L17">    static List&lt;BookEntity&gt; listBooks = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L17">    static List&lt;BookEntity&gt; listBooks = new ArrayList&lt;&gt;();</span>
 
     @Override
     public boolean validateExistsBook(String nameBook) {
-<span class="nc" id="L21">        AtomicBoolean exists = new AtomicBoolean(false);</span>
-<span class="nc" id="L22">        listBooks.forEach(book -&gt; {</span>
-<span class="nc bnc" id="L23" title="All 2 branches missed.">            if (book.getName().equals(nameBook)) {</span>
-<span class="nc" id="L24">                exists.set(true);</span>
+<span class="fc" id="L21">        AtomicBoolean exists = new AtomicBoolean(false);</span>
+<span class="fc" id="L22">        listBooks.forEach(book -&gt; {</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">            if (book.getName().equals(nameBook)) {</span>
+<span class="fc" id="L24">                exists.set(true);</span>
             }
-<span class="nc" id="L26">        });</span>
-<span class="nc" id="L27">        return exists.get();</span>
+<span class="fc" id="L26">        });</span>
+<span class="fc" id="L27">        return exists.get();</span>
     }
 
     @Override
     public List&lt;BookEntity&gt; searchBook(String autor) {
-<span class="nc" id="L32">        List&lt;BookEntity&gt; resultados = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L33">        listBooks.forEach(dato -&gt; {</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">            if (dato.getAuthor().contains(autor)) {</span>
-<span class="nc" id="L35">                resultados.add(dato);</span>
+<span class="fc" id="L32">        List&lt;BookEntity&gt; resultados = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L33">        listBooks.forEach(dato -&gt; {</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">            if (dato.getAuthor().contains(autor)) {</span>
+<span class="fc" id="L35">                resultados.add(dato);</span>
             }
-<span class="nc" id="L37">        });</span>
-<span class="nc" id="L38">        return resultados;</span>
+<span class="fc" id="L37">        });</span>
+<span class="fc" id="L38">        return resultados;</span>
     }
 
 
     @Override
     public List registerBook(Book newBook) {
-<span class="nc" id="L44">        BookEntity bookEntity = BookEntity.fromModel(newBook);</span>
-<span class="nc" id="L45">        bookEntity.setId(listBooks.size() + 1);</span>
-<span class="nc" id="L46">        listBooks.add(bookEntity);</span>
-<span class="nc" id="L47">        return listBooks;</span>
+<span class="fc" id="L44">        BookEntity bookEntity = BookEntity.fromModel(newBook);</span>
+<span class="fc" id="L45">        bookEntity.setId(listBooks.size() + 1);</span>
+<span class="fc" id="L46">        listBooks.add(bookEntity);</span>
+<span class="fc" id="L47">        return listBooks;</span>
 
     }
 
     @Override
     public boolean addBook(String name) {
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (BookEntity book : listBooks) {</span>
-<span class="nc bnc" id="L54" title="All 4 branches missed.">            if (book.getName().equals(name) &amp;&amp; quantityCheck(book)) {</span>
-<span class="nc" id="L55">                book.setQuantity(book.getQuantity() + 1);</span>
-<span class="nc" id="L56">                return true;</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        for (BookEntity book : listBooks) {</span>
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">            if (book.getName().equals(name) &amp;&amp; quantityCheck(book)) {</span>
+<span class="fc" id="L55">                book.setQuantity(book.getQuantity() + 1);</span>
+<span class="fc" id="L56">                return true;</span>
             }
-<span class="nc" id="L58">        }</span>
-<span class="nc" id="L59">        throw new IllegalArgumentException(&quot;No existe libro para actualizar o numero maximo alcanzado&quot;);</span>
+<span class="fc" id="L58">        }</span>
+<span class="fc" id="L59">        throw new IllegalArgumentException(&quot;No existe libro para actualizar o numero maximo alcanzado&quot;);</span>
     }
 
     public boolean quantityCheck (BookEntity book){
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (book.getQuantity() &lt; 10){</span>
-<span class="nc" id="L64">            return true;</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        if (book.getQuantity() &lt; 10){</span>
+<span class="fc" id="L64">            return true;</span>
         }
-<span class="nc" id="L66">        return false;</span>
+<span class="fc" id="L66">        return false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

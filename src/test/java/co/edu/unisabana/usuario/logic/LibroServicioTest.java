@@ -3,12 +3,15 @@ package co.edu.unisabana.usuario.logic;
 import co.edu.unisabana.usuario.service.library.model.Book;
 import co.edu.unisabana.usuario.service.library.model.CategoryBook;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LibroServicioTest {
+
 
     private LibroServicio servicio = new LibroServicio() ;
     private Book book1 = new Book("El señor de los anillos", 1954,"J.R. Tolkien", false, CategoryBook.SOFT_COVER);
@@ -46,5 +49,17 @@ public class LibroServicioTest {
         listado.add(servicio.addBook(book1));
         assertFalse(listado.isEmpty());
     }
-
+    @Test
+    public void Given_list_not_empty_When_getMaximo_Then_return_size(){
+        List<Book> listado = new ArrayList();
+        listado.add(book1);
+        listado.add(book2);
+        listado.add(book3);
+        assertEquals(3,servicio.getMaximo(listado));
+    }
+ @Test
+    public void  Given_list_empty_When_getMaximo_Then_return_size(){
+     List<Book> listado = new ArrayList();
+     assertEquals(0,servicio.getMaximo(listado));
+ }
 }

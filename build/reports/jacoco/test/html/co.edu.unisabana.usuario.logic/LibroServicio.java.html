@@ -13,28 +13,28 @@ import co.edu.unisabana.usuario.service.library.model.Book;
     }
 
     public Book getBook(String name ){
-<span class="nc bnc" id="L16" title="All 2 branches missed.">        for (Book book : listado){</span>
-<span class="nc bnc" id="L17" title="All 2 branches missed.">            if (book.getName()==name){</span>
-<span class="nc" id="L18">                return book;</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (Book book : listado){</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">            if (book.getName()==name){</span>
+<span class="fc" id="L18">                return book;</span>
 
             }
-<span class="nc" id="L21">        }</span>
-<span class="nc" id="L22">        return null;</span>
+<span class="fc" id="L21">        }</span>
+<span class="fc" id="L22">        return null;</span>
     }
 
     public Book addBook(Book book){
-<span class="nc" id="L26">        book.setName();</span>
-<span class="nc" id="L27">        listado.add(book);</span>
-<span class="nc" id="L28">        return book;</span>
+<span class="fc" id="L26">        book.setName();</span>
+<span class="fc" id="L27">        listado.add(book);</span>
+<span class="fc" id="L28">        return book;</span>
     }
 
-    public int getMaximo(){
+    public int getMaximo(List&lt;Book&gt; listado){
 <span class="fc" id="L32">        int size = listado.size();</span>
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (size &gt; 0){</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (size &gt; 0){</span>
 <span class="fc" id="L34">            return size;</span>
 
         }
-<span class="nc" id="L37">        return Integer.parseInt(null);</span>
+<span class="fc" id="L37">        return 0;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

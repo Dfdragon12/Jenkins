@@ -13,21 +13,21 @@ public class RegisterBookLibrary {
     private final AddBookPort addBookPort;
     private final RegisterBookPort registerBookPort;
 
-<span class="nc" id="L16">    public RegisterBookLibrary(SearchBookPort searchBookPort, AddBookPort addBookPort, RegisterBookPort registerBookPort) {</span>
-<span class="nc" id="L17">        this.searchBookPort = searchBookPort;</span>
-<span class="nc" id="L18">        this.addBookPort = addBookPort;</span>
-<span class="nc" id="L19">        this.registerBookPort = registerBookPort;</span>
-<span class="nc" id="L20">    }</span>
+<span class="fc" id="L16">    public RegisterBookLibrary(SearchBookPort searchBookPort, AddBookPort addBookPort, RegisterBookPort registerBookPort) {</span>
+<span class="fc" id="L17">        this.searchBookPort = searchBookPort;</span>
+<span class="fc" id="L18">        this.addBookPort = addBookPort;</span>
+<span class="fc" id="L19">        this.registerBookPort = registerBookPort;</span>
+<span class="fc" id="L20">    }</span>
 
 
     public int registerBook(Book book) {
-<span class="nc" id="L24">        boolean exists = searchBookPort.validateExistsBook(book.getName());</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (exists) {</span>
-<span class="nc" id="L26">            addBookPort.addBook(book.getName());</span>
-<span class="nc" id="L27">            return 1;</span>
+<span class="fc" id="L24">        boolean exists = searchBookPort.validateExistsBook(book.getName());</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (exists) {</span>
+<span class="fc" id="L26">            addBookPort.addBook(book.getName());</span>
+<span class="fc" id="L27">            return 1;</span>
         } else {
-<span class="nc" id="L29">            registerBookPort.registerBook(book);</span>
-<span class="nc" id="L30">            return 2;</span>
+<span class="fc" id="L29">            registerBookPort.registerBook(book);</span>
+<span class="fc" id="L30">            return 2;</span>
         }
     }
 

@@ -28,12 +28,12 @@ public class LibroServicio {
         return book;
     }
 
-    public int getMaximo(){
+    public int getMaximo(List<Book> listado){
         int size = listado.size();
         if (size > 0){
             return size;
 
         }
-        return Integer.parseInt(null);
+        return 0;
     }
 }

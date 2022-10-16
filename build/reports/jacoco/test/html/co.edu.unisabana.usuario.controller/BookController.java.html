@@ -16,20 +16,20 @@ public class BookController {
     private final RegisterBookLibrary registerBookLibrary;
 
 
-<span class="nc" id="L19">    public BookController(RegisterBookLibrary registerBookLibrary) {</span>
-<span class="nc" id="L20">        this.registerBookLibrary = registerBookLibrary;</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L19">    public BookController(RegisterBookLibrary registerBookLibrary) {</span>
+<span class="fc" id="L20">        this.registerBookLibrary = registerBookLibrary;</span>
+<span class="fc" id="L21">    }</span>
 
     // Pendiente validar uso de exception handler
     // explicar camel case
     @PostMapping(&quot;/register&quot;)
     @ResponseBody
     public BookReponse registerBook(@RequestBody BookDto bookDto) {
-<span class="nc" id="L28">        int result = registerBookLibrary.registerBook(bookDto.toModel());</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (result == 1) {</span>
-<span class="nc" id="L30">            return new BookReponse(&quot;Actualizada cantidad&quot;);</span>
+<span class="fc" id="L28">        int result = registerBookLibrary.registerBook(bookDto.toModel());</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (result == 1) {</span>
+<span class="fc" id="L30">            return new BookReponse(&quot;Actualizada cantidad&quot;);</span>
         }
-<span class="nc" id="L32">        return new BookReponse(&quot;Nuevo libro registrado&quot;);</span>
+<span class="fc" id="L32">        return new BookReponse(&quot;Nuevo libro registrado&quot;);</span>
 
 
     }

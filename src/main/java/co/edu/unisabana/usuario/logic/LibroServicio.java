@@ -23,7 +23,7 @@ public class LibroServicio {
     }
 
     public Book addBook(Book book){
-        book.setName();
+        book.setName(book.getName());
         listado.add(book);
         return book;
     }

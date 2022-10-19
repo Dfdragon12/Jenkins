@@ -21,13 +21,12 @@ public class Book {
         this.category = category;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Book() {
 
     }
-
-    public void setName() {
-    }
-
-    public void setCategory() {
-    }
+    
 }

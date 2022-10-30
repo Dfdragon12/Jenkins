@@ -10,17 +10,33 @@ group = 'co.edu.unisabana'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '8'
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 repositories {
     mavenCentral()
 }
 
-jacoco{
+jacoco {
     toolVersion = "0.8.8"
 }
 
-test{
+test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.2
+            }
+        }
+    }
 }
 
 jacocoTestReport {
@@ -47,6 +63,15 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     implementation("com.google.guava:guava:31.1-jre")
+
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }
 
 tasks.named('test') {
@@ -55,6 +80,6 @@ tasks.named('test') {
 
 sonarqube {
     properties {
-        property("sonar.projectName","yms-gate")
+        property("sonar.projectName", "yms-gate")
     }
 }

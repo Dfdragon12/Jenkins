@@ -29,7 +29,7 @@ public class BookDaoTest {
     @Test
     public void Given_bookName_ok_When_validateExistsBook_Then_return_true() {
         bookDao.registerBook(book);
-        assertTrue(bookDao.validateExistsBook(book.getName()));
+        assertFalse(bookDao.validateExistsBook(book.getName()));
     }
 
     @Test
